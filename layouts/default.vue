@@ -50,6 +50,7 @@
       </v-btn>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer />
+      <v-btn @click="$auth.logout()">Logout</v-btn>
       <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
@@ -90,7 +91,8 @@
 
 <script>
 export default {
-  name: 'DefaultLayout',
+  name: 'DefaultLayout', 
+  middleware: ['auth'],
   data () {
     return {
       clipped: false,
@@ -106,6 +108,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
+        },
+        {
+          icon: 'mdi-login',
+          title: 'Sign In',
+          to: 'auth/signinpage'
         }
       ],
       miniVariant: false,
