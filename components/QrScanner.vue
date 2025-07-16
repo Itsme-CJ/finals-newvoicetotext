@@ -17,14 +17,24 @@ onMounted(() => {
     qrbox: { width: 250, height: 250 }
   })
 
-  scanner.render(
-    (decodedText) => {
-      scanResult.value = decodedText
-      scanner.clear()
-    },
-    (error) => {
-      console.error('Scan error:', error)
+scanner.render(
+  (decodedText) => {
+    scanResult.value = decodedText;
+
+    // Open in new tab to allow coming back easily
+    if (decodedText.startsWith('http://') || decodedText.startsWith('https://')) {
+      window.open(decodedText, '_blank');
+    } else if (decodedText.startsWith('/')) {
+      // Optional: handle internal route (like /auth/signinpage)
+      router.push(decodedText);
     }
-  )
+
+    scanner.clear();
+  },
+  (error) => {
+    console.error('Scan error:', error);
+  }
+);
 })
 </script>
+
