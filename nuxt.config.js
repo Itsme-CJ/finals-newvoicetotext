@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - BSIT-3A',
-    title: 'Voice to Text',
+    titleTemplate: '%s - voicetotext',
+    title: 'VoicetoText',
     htmlAttrs: {
       lang: 'en'
     },
