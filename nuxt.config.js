@@ -7,7 +7,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - BSIT-3A',
-    title: 'QR Code Scanner',
+    title: 'Voice to Text',
     htmlAttrs: {
       lang: 'en'
     },
